@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: webendterm
+  datasource:
+    url: jdbc:postgresql://localhost:5432/webendterm
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      minimumIdle: 1
+      maximumPoolSize: 3
+      idleTimeout: 10000
+      maxLifetime: 1000000
+      connectionTimeout: 30000
+  jpa:
+    generate-ddl: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+          lob:
+            non_contextual_creation: true
+    output:
+      ansi:
+        enabled: always
+
+jwt:
+  secret: Aa123456
+
+
+server:
+  port: 8080
